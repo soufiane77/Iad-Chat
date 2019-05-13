@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  php:
+    build:
+      context: ./ops/php
+    links:
+      - mysql:mysql
+    volumes:
+      - ./:/var/www/Iad-Chat
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    links:
+      - php
+    volumes:
+      - ./ops/nginx/conf.d:/etc/nginx/conf.d
+    environment:
+      WEBDIR: /var/www/Iad-Chat
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "8989:8989"
+    volumes:
+      - ./ops/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
+    environment:
+       MYSQL_ROOT_PASSWORD: soufiane
+       MYSQL_DATABASE: iad_chat
+       MYSQL_USER: user
+       MYSQL_PASSWORD: root

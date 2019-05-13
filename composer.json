@@ -1,0 +1,20 @@
+{
+    "name": "s.aqajjef/docker-compose-phpstack",
+    "authors": [
+        {
+            "name": "soufiane aqajjef",
+            "email": "s.aqajjef@paristurf.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "dannyvankooten/php-router": "^1.2@alpha",
+        "jms/serializer": "^2.1",
+        "symfony/yaml": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

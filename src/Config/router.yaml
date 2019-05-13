@@ -1,0 +1,9 @@
+ase_path: /
+
+routes:
+  get_messages: [/messages, App\Controller\MessageController.get, GET]
+  post_messages: [/messages, App\Controller\MessageController.add, POST]
+  post_user: [/users, App\Controller\UserController.add, POST]
+  login: [/login, App\Controller\IndexController.login, POST]
+  logout: [/logout, App\Controller\IndexController.logout, GET]
+  ping: [/ping, App\Controller\IndexController.ping, GET]
